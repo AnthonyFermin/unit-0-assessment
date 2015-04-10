@@ -150,6 +150,8 @@ public class Unit0Tests {
 
     }
 
+
+    // Created an extra method to get nth fibonacci Number
     public static int getFib(int n){
         int currentFib = 1;
         int previousFib = 0;
@@ -164,6 +166,7 @@ public class Unit0Tests {
             previousFib = currentFib;
             currentFib = nextFib;
         }
+
         return currentFib;
     }
 
