@@ -13,45 +13,59 @@ public class Unit0Tests {
      */
     public static void main (String args[]) {
       // Use main to test your methods
-      printHelloWorld();
+        bonusPrintOutSumOfFirstTenFibonacciNumbers();
+
+
+
     }
 
     public static void printHelloWorld() {
-      System.out.println("");
+      System.out.println("Hello World");
     }
 
-    public static Object returnPrimitiveBooleanTrue() {
-      return null;
+    public static boolean returnPrimitiveBooleanTrue() {
+      return true;
     }
 
-    public static Object returnPrimitiveInt1729() {
-      return null;
+    public static int returnPrimitiveInt1729() {
+      return 1729;
     }
 
-    public static Object returnPrimitiveDoubleThreePointOneFour() {
-      return null;
+    public static double returnPrimitiveDoubleThreePointOneFour() {
+      return 3.14;
     }
 
-    public static Object returnPrimitiveCharZ() {
-        return false;
+    public static char returnPrimitiveCharZ() {
+        return 'Z';
     }
 
     public static void printSumOf1Upto10UsingForLoop() {
+        int sum = 0;
+        for(int i = 0; i < 10; i++){
+            sum+=i;
+        }
+        System.out.println(sum);
     }
 
     public static void printSumOf1Upto10000UsingForLoop() {
+        int sum = 0;
+        for(int i = 0; i < 10000; i++){
+            sum+=i;
+        }
+        System.out.println(sum);
     }
 
     public static boolean isOdd(int n) {
-      return false;
+        return (n % 2 != 0);
     }
 
     public static boolean isMultipleOfThree(int n) {
-      return false;
+        return n % 3 == 0;
     }
 
     public static boolean isOddAndIsMultipleOfThree(int n) {
-      return false;
+
+        return isOdd(n) && isMultipleOfThree(n);
     }
 
     public static String repeatStringXTimes(String input, int times) {
@@ -59,48 +73,110 @@ public class Unit0Tests {
         // return a string that is equal to the input string repeated X times.
         // If "times" is 0 negative, return a blank string.
         // For example, repeatStringXTimes("potato", 5) should return "potatopotatopotatopotatopotato".
-        return "";
+
+        String repeatedString = "";
+        for(int i = 0; i < times; i++){
+            repeatedString += input;
+        }
+        return repeatedString;
     }
 
     public static String returnStringUntilQ(String input) {
         // Given string "input", return a string that stops at the first occurrence of the character 'q'.
         // For example, given the string "ubiquitous", return "ubi".
         // If the string does not contain a q, then return the empty string "".
-        return "";
+
+        if(!(input.contains("q"))){
+            return "";
+        }else{
+            int indexOfQ = input.indexOf("q");
+            return input.substring(0,indexOfQ);
+        }
+
+
     }
 
     public static Person declareAndReturnPersonNamedAda() {
-      return null;
+
+        return new Person("Ada");
     }
 
     public static Person declareAndReturnPersonNamedAlanTuringFromLondon() {
-      return null;
+        Person alan = new Person("Alan Turing");
+        alan.setCity("London");
+        return alan;
     }
 
     public static boolean isFromLondon(Person person) {
-      return false;
+
+        if(person.getCity() == null)
+            return false;
+
+        return person.getCity().equals("London");
     }
 
     public static ArrayList<Place> declareAndReturnArrayListOfThreePlaces() {
-        return null;
+
+        ArrayList<Place> places = new ArrayList<Place>();
+        places.add(new Place("New York City"));  //default long and lat is New York
+        places.add(new Place("Chicago", -87.6847,41.8369));
+        places.add(new Place("Stockholm", 18.0686, 59.3294));
+
+        return places;
     }
 
     public static HashMap<String, Person> declareAndReturnHashmapOfAlanTuringAndGraceHopper() {
       // The HashMap should have key-value pairs of:
       // - key: `Alan Turing`, value: instance of Person with name `Alan Turing`
       // - key: `Grace Hopper`, value: instance of Person with name `Grace Hopper`
-      return null;
+
+        HashMap<String,Person> famousCoders = new HashMap<String,Person>();
+        Person alan = new Person("Alan Turing");
+        alan.setCity("London");
+        Person grace = new Person("Grace Hopper");
+        grace.setCity("Arlington");
+
+        famousCoders.put("Alan Turing", alan);
+        famousCoders.put("Grace Hopper", grace);
+
+      return famousCoders;
     }
 
     public static void changeTuringsCityToPrinceton(HashMap<String, Person> people) {
+
+        Person alan = people.get("Alan Turing");
+        alan.setCity("Princeton");
+        people.put("Alan Turing", alan);
+
+    }
+
+    public static int getFib(int n){
+        int currentFib = 1;
+        int previousFib = 0;
+        int nextFib;
+
+        if( n == 0){
+            return previousFib;
+        }
+
+        for(int i = 0; i < n - 1; i++){
+            nextFib = currentFib + previousFib;
+            previousFib = currentFib;
+            currentFib = nextFib;
+        }
+        return currentFib;
     }
 
     // Bonus Problems
     public static void bonusPrintOutSumOfFirstTenFibonacciNumbers() {
-
+        int sum = getFib(11); // sum of fib(0) through fib(9) is fib(10)
+        System.out.println(sum);
     }
 
     public static void bonusPrintOutSumOfFirstFortyFibonacciNumbers() {
+
+        int sum = getFib(41); // sum of fib(0) through fib(39) is fib(40)
+        System.out.println(sum);
 
     }
 }
