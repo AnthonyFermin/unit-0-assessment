@@ -146,8 +146,6 @@ public class Unit0Tests {
 
         Person alan = people.get("Alan Turing");
         alan.setCity("Princeton");
-        people.put("Alan Turing", alan);
-
     }
 
 
@@ -172,13 +170,13 @@ public class Unit0Tests {
 
     // Bonus Problems
     public static void bonusPrintOutSumOfFirstTenFibonacciNumbers() {
-        int sum = getFib(11); // sum of fib(0) through fib(9) is fib(10)
+        int sum = getFib(11);
         System.out.println(sum);
     }
 
     public static void bonusPrintOutSumOfFirstFortyFibonacciNumbers() {
 
-        int sum = getFib(41); // sum of fib(0) through fib(39) is fib(40)
+        int sum = getFib(41);
         System.out.println(sum);
 
     }
